@@ -60,8 +60,9 @@ app.get('/weather',(req,res)=>{
         forecast(latitude,longitude,(error,Forecastdata)=>{
             if(error){
                 return res.send({error})
-            }  
-            const forecaststring = 'The temperature is '+Forecastdata.main.temp+String.fromCharCode(176)+' Celsius.'
+            } 
+            //console.log(Forecastdata) 
+            const forecaststring = 'The temperature is '+Forecastdata.main.temp+String.fromCharCode(176)+' Celsius. The minimum temperature : '+Forecastdata.main.temp_min+String.fromCharCode(176)+' Celsius and maximum temperature : '+Forecastdata.main.temp_max+String.fromCharCode(176)+' Celsius.'// Description : '+Forecastdata.weather[0].description
             res.send({
                 temp:Forecastdata.main.temp,
                 forecast:forecaststring,
